@@ -1,6 +1,9 @@
-add_executable(
+simple_executable(
     tcpcli
-    tcpcli.c
+    tcpser
 )
 
-include_unp(tcpcli)
+include_util(
+    tcpcli
+    tcpser
+)
