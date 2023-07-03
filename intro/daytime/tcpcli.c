@@ -19,17 +19,17 @@ int main(int argc, char *argv[])
 
     if (inet_pton(AF_INET, "0.0.0.0", &serveraddr.sin_addr) < 0)
     {
-        ERROR(inet_pton)
+        ERROR
     }
 
     if ( (serverfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
-        ERROR(sockfd = socket)
+        ERROR
     }
 
     if (connect(serverfd, SA(serveraddr), sizeof(serveraddr)) < 0)
     {
-        ERROR(connect)
+        ERROR
     }
 
     while ( (n = read(serverfd, buffer, MAX_LINE)) > 0)

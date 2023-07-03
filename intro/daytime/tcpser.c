@@ -21,22 +21,22 @@ int main(int argc, char *argv[])
 
     if (inet_pton(AF_INET, "0.0.0.0", &serveraddr.sin_addr) < 0)
     {
-        ERROR(inet_pton)
+        ERROR
     }
 
     if ((serverfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
-        ERROR(sockfd = socket)
+        ERROR
     }
 
     if (bind(serverfd, SA(serveraddr), sizeof(serveraddr)) < 0)
     {
-        ERROR(bind)
+        ERROR
     }
 
     if (listen(serverfd, /*connections*/ 1) < 0)
     {
-        ERROR(listen)
+        ERROR
     }
 
     while (1)
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
         int client_socket_length;
         if ( (clientfd = accept(serverfd, &client_socket, &client_socket_length)) < 0)
         {
-            ERROR(clientfd = accept)
+            ERROR
         }
         time_t t = time(NULL);
         char *time_str = ctime(&t);

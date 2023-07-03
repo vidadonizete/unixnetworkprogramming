@@ -8,8 +8,8 @@
 
 #define MAX_LINE 2048
 
-#define ERROR(error)                                   \
-    fprintf(stderr, "Error: %s %d", #error, __LINE__); \
+#define ERROR                                   \
+    fprintf(stderr, "Error: %d %d", __LINE__, errno); \
     exit(0);
 
 #define SA(sockaddr) (__CONST_SOCKADDR_ARG) & sockaddr
